@@ -6,3 +6,4 @@ The challenge:
 
 In this writeup, I created three sections for analysis. First one is for static analysis, second section is for dynamic analysis, and the last one is for disassembling and debugging. The static analysis will be the part where i’ll find the characteristics and any interesting attribute of the software. 
 The dynamic analysis will be the part where i’ll run the program, find out its behaviors, what it looks like and what it will do.
+And the last part is disassembling and debugging where i'll analyze the low level code of the program.
