@@ -16,3 +16,24 @@ The first thing i did is to find out what are the attributes of the program and 
 Next is finding useful strings in the program. I found a string “cr4ckingL3ssons” as a likely serial key to be used in the program and next to it are words like “Congrats” and “Well done!”.
 
 ![](images/figure2.png)
+
+# Dynamic Analysis
+I run the program so i could find out what it looks like and it’s behavior. The program itself have a very simple design, a window will be shown with a text box to enter the password and two buttons below.
+
+![](images/figure3.png)
+
+I randomly put different things to find out the behavior of the software. First, i clicked the “check” button to see what will happen.
+
+![](images/figure4.png)
+
+The program produced another window that says “Wrong serial key. Try again”. I tried putting a series of strings. First, i put a series of numeric number.
+
+![](images/figure5.png)
+
+I tried putting strings and alphanumeric but it also produces similar results. Next i used, the string “cr4ckingL3ssons” that i found earlier to test whether it will work.
+
+![](images/figure6.png)
+
+The program produced a different windows. I can conclude the first challenge, in which i found the serial key. Next is to disassemble the program and find where the main code and logic of the program is.
+
+# Disassembling and Debugging
