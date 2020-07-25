@@ -10,4 +10,5 @@ And the last part is disassembling and debugging where i'll analyze the low leve
 
 # Static Analysis
 The first thing i did is to find out what are the attributes of the program and i used pestudio to determine the attributes. As per the software author, the compiler that they used is Visual studio C++ 2017. The software is GUI and it runs on a 32bit machine.
-![](image/figure1.png)
+
+![](images/figure1.png)
