@@ -61,4 +61,20 @@ After getting the user text, it will be compared to the serial key two character
 All assembly code “jne” included the one just below the highlight determines whether it will show a congratulatory message or the wrong serial message, similar to If/Else command. That means to prevent the program from showing the wrong serial key message box, we need to either modify the “jne” so that it could always jump to the congratulatory message box or we could modify it to “nop” command.
 
 # Patching the Program
+To patch the program, we need to open it using a hex editor, i used the program “010 Editor” and find all the hex code for the 3 “jne”. The hex code can be found at relative address 0000113Ah, 00001130h, and 00001124h in memory which will be equal to the address 053Ah, 0530h, and 0524h, respectively, in disk. Below is the screenshot hex equivalent of the codes.
 
+![](images/figure12.png)
+
+I’ll modify all the highlighted and change it to “90 90” which is the hex code for “NOP” command.
+
+![](images/figure13.png)
+
+Now let’s save and run the program if the patch works.
+
+![](images/figure14.png)
+
+We successfully patched the program to always show the congratulatory message completing all the challenge.
+
+# Conclusion
+
+By far, one of the easiest and beginner friendly crackme. This challenge is good for beginners and students alike wanting to learn how to reverse engineer and teaching them the concepts and steps for proper procedure. 
