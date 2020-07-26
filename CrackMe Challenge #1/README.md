@@ -37,3 +37,28 @@ I tried putting strings and alphanumeric but it also produces similar results. N
 The program produced a different windows. I can conclude the first challenge, in which i found the serial key. Next is to disassemble the program and find where the main code and logic of the program is.
 
 # Disassembling and Debugging
+First, i need to find the main code. I opened up the program using IDA free to disassemble it. As the author mentioned that the program was compiled using Microsoft Visual Studio C++ 2017, i need to find a certain pattern. At relative address, #1333, i found the pattern of likely the main code. The pattern is composed of 3 “push” commands followed by a call to the main code address.
+
+![](images/figure7.png)
+
+Once i found the main code. The first thing i noticed was the API for creating a dialog box.
+
+![](images/figure8.png)
+
+In the API there is a location for a Dialog Function. Located in the address dialog function are the message boxes that will pop up if the serial key is correct or not, the assembly code for the serial key and the code to check whether you click the “check” button or the “about” button. 
+
+![](images/figure9.png)
+
+The jump comparison to the relative address 000010FB is of interest as it lead directly to the assembly code where the serial key will be compared to the text entered by the user. Below is the screenshot of that address.
+
+![](images/figure10.png)
+
+The call to “GetDlgItemTextA” will retrieve the text that was entered in the serial text box. Below the call function is a “mov” command that will retrieve the address of the serial key and put to ecx. Ass you can see, the string “cr4ckingL3ssons” was automatically commented by IDA pro at the right side.
+After getting the user text, it will be compared to the serial key two characters at a time. Each character will be checked to see if it matched then move to the next character until the end of string. Below is the screenshot of the comparison. Highlighted is the code to compare two characters at a time.
+
+![](images/figure11.png)
+
+All assembly code “jne” included the one just below the highlight determines whether it will show a congratulatory message or the wrong serial message, similar to If/Else command. That means to prevent the program from showing the wrong serial key message box, we need to either modify the “jne” so that it could always jump to the congratulatory message box or we could modify it to “nop” command.
+
+# Patching the Program
+
