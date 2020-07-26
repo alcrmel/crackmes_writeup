@@ -73,7 +73,7 @@ Now let’s save and run the program if the patch works.
 
 ![](images/figure14.png)
 
-We successfully patched the program to always show the congratulatory message completing all the challenge.
+We successfully patched the program to always show the congratulatory message completing all the challenges.
 
 # Conclusion
 
